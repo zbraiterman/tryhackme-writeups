@@ -38,3 +38,8 @@ source_control 1
 
 
 ### Answer the questions below
+
+1. At what UTC timestamp did the agent first achieve code execution inside the worker pod? (Answer Format: YYYY-MM-DDTHH:MM:SSZ)
+
+`$ jq -r '.[] | select(.action_type=="dropper") | .ts' /opt/incident/agent-t
+race.json | sort | head -1`
