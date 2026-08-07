@@ -1,0 +1,18 @@
+esult": "ok",
+    "refs": {
+      "c2_msg": "cmd/0001",
+      "dataset_rev": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0"
+    }
+  },
+  {
+    "ts": "2026-07-09T04:01:09Z",
+    "action_id": "a-000004",
+    "phase": "foothold",
+    "action_type": "recon",
+    "cmd": "ls /var/run/secrets/kubernetes.io/serviceaccount/",
+    "result": "ok",
+    "refs": {
+      "c2_msg": null
+    }
+  },
+  {
