@@ -19,3 +19,8 @@ Start the machine, then connect as the analyst user with the password Investigat
 ----------
 
 ## Triage the Action Trace
+
+
+No single source tells that story. The skill this room teaches is joining them, and the quickest way to see why is to put the plaintext logs on one timeline.
+
+`$ lnav /opt/incident/*.log`
