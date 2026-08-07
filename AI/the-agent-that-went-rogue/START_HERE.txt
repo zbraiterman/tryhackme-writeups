@@ -1,1 +1,23 @@
 /home/analyst/START_HERE.txt 
+
+Investigating an Agent-Driven Intrusion - analyst workstation.
+
+The incident artifacts live in /opt/incident/:
+  dataset-worker.log   the HF dataset-processor worker (injection + HDF5 read)
+  proxy-access.log     package-proxy escape + C2 egress
+  c2-messages.json     encoded C2 envelopes (the decode target)
+  kubernetes-audit.json the K8s escalation + RBAC
+  imds-capture.txt     169.254.169.254 metadata responses
+  collected-files/     malicious-dataset.yaml, environment.h5, process tree
+
+See the two plaintext logs correlated by time (lnav does not parse
+the JSON sources; use jq/python3 for those):
+  lnav /opt/incident/*.log
+
+Explore:
+  jq '.' /opt/incident/agent-trace.json | less
+  rg -n 'EXPLOITGYM' /opt/incident/collected-files/environment.h5
+  h5dump -H /opt/incident/collected-files/environment.h5   # if a real .h5
+  python3 -c "import yaml,sys; print(yaml.safe_load(open('/opt/incident/collected-files/malicious-dataset.yaml')))"
+
+Every value here is SYNTHETIC. The only real constant is 169.254.169.254.
